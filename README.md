@@ -24,7 +24,7 @@ Then, to display the result of the last query executed (if applicable), you have
 
 This will print the results of the query to the console. 
 
-For more information on how to use the database in a python script, please take a look at the [Official Psycopg Documentation](https://www.psycopg.org/docs/) 
+For more information on how to use the database in a python script, please take a look at the [Official Psycopg Documentation](https://www.psycopg.org/docs/).
 
 
 
