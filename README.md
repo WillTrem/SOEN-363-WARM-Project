@@ -6,15 +6,18 @@ SOEN 363 Project Repository of team WARM
 We are using a PostgreSQL database hosted by bit.io.
 ## How to Use the Database in a Python Script
 ### Setup
-To be able to execute queries, simply paste the following line at the top of the python file: 
+To be able to execute queries, simply paste the following line at the top of the python file:
+
 `from dbSetup import cursor`
+
 This will import the `cursor` variable from the database setup, which can be used to manipulate the database.
 
 ### Executing a query on the Database
-Queries can be executed with the following function: 
+Queries can be executed with the following function:
+
 `cursor.execute("<SQL_Query>")`
 
-Here, you would replace <SQL_Query> with any valid SQL query.
+Here, you would replace <SQL_Query> with any valid SQL query.\
 
 e.g. `cursor.execute("SELECT * FROM demo;")`
 
