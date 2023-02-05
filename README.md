@@ -17,9 +17,10 @@ Queries can be executed with the following function:
 
 `cursor.execute("<SQL_Query>")`
 
-Here, you would replace <SQL_Query> with any valid SQL query.\
+Here, you would replace <SQL_Query> with any valid SQL query.
 
-e.g. `cursor.execute("SELECT * FROM demo;")`
+e.g.\
+`cursor.execute("SELECT * FROM demo;")`
 
 Then, to display the result of the last query executed (if applicable), you have to use the `cursor.fetchall()` function as following:
 
