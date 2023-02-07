@@ -18,7 +18,7 @@ To be able to execute queries, simply paste the following line at the top of the
 from dbSetup import cursor
 ```
 
-This will import the `cursor` variable from the database setup, which can be used to manipulate the database.
+This will import the `connection` `cursor` variable from the database setup, which can be used to manipulate the database.
 
 ### Executing a query on the Database
 Queries can be executed with the following function:
@@ -41,6 +41,12 @@ print(cursor.fetchall())
 ```
 
 This will print the results of the query to the console. 
+
+If you make any transactions to the database (e.g. from an `INSERT` statement), you have to apply them to the database. To do so, simply add the following line after all desired transactions have been executed:
+
+```bash
+connection.commit()
+```
 
 For more information on how to use the database in a python script, please take a look at the [Official Psycopg Documentation](https://www.psycopg.org/docs/).
 
