@@ -1,30 +1,37 @@
 from dbSetup import connection, cursor
 import pandas
 
-data = pandas.read_csv(r'tweets.csv')
+data = pandas.read_csv('tweets.csv')
 df = pandas.DataFrame(data)
 
-print(df)
+# print(df)
 
-user_userName = pandas.DataFrame(data, columns=['USER: Username'])
-user_description = pandas.DataFrame(data, columns=['USER: Description'])
-user_created = pandas.DataFrame(data, columns=['USER: Created'])
-user_followerCount = pandas.DataFrame(data, columns=['USER: Follower Count'])
-user_verified = pandas.DataFrame(data, columns=['USER: USER: Verified'])
+#Split the csv file into each table 
+tweets_table = df.filter(like='TWEET:')
+user_table = df.filter(like='USER:')
+metrics_table = df.filter(like='METRICS:')
+hashtag_table = df.filter(like='HASHTAG')
+location_table = df.filter(like='LOCATION:')
 
 
+# for value in user_table['USER: Username'].to_list():
+# 	# print(str(value))
+# 	cursor.execute("INSERT INTO demo (username) VALUES (%s)", (value,))
+# cursor.execute("select * from demo;")
+# print(cursor.fetchall())
 
-# print(user_userName)
-# bitQuery = "INSERT INTO demo (username) VALUES (%s)"
-# values = ("hellllllo")
-# bitQuery = "INSERT INTO demo (username) VALUES ({s});".format(user_userName)
-# values = (user_userName)
-# user_userName = "hellllllo"
-# cursor.executemany(bitQuery, user_userName)
-# cursor.executemany(f"INSERT INTO demo (username) VALUES {user_userName};")
-# user_userName = "username"
-# cursor.execute("INSERT INTO demo (username) VALUES (%s)" % user_userName)
-# cursor.execute("INSERT INTO demo (id) VALUES (3);")
+#GOOD STUFF
+for index, row in tweets_table.iterrows():
+    print(row)
+    print('\n')
+    cursor.execute("INSERT INTO tweet (text, links, datetime) VALUES (%s, %s, %s)", (row["TWEET: Text"], row["TWEET: Links"], row["TWEET: Date"],))
+
+#Applies any transactions made to the actual database
+connection.commit()
+
+#Important to close the connection after using the database
+connection.close()
+
 
 # Creation of tables
 # cursor.execute("CREATE TABLE Location(locationID VARCHAR, city VARCHAR, placeType VARCHAR, completeLocation VARCHAR, country VARCHAR, countryCode VARCHAR);")
@@ -63,8 +70,5 @@ user_verified = pandas.DataFrame(data, columns=['USER: USER: Verified'])
 
 # print(cursor.fetchall())
 
-#Applies any transactions made to the actual database
-connection.commit()
-
-#Important to close the connection after using the database
-connection.close()
+# alter table tweet
+#    alter tweetid add generated always as identity;
