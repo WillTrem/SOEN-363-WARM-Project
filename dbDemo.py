@@ -4,11 +4,9 @@ import pandas
 data = pandas.read_csv('tweets.csv')
 df = pandas.DataFrame(data)
 
-# print(df)
-
 #Split the csv file into each table 
 tweets_table = df.filter(like='TWEET:')
-user_table = df.filter(like='USER:')
+user_table = df.filter(like='USER:').drop_duplicates()
 metrics_table = df.filter(like='METRICS:')
 hashtag_table = df.filter(like='HASHTAG')
 location_table = df.filter(like='LOCATION:')
@@ -20,11 +18,26 @@ location_table = df.filter(like='LOCATION:')
 # cursor.execute("select * from demo;")
 # print(cursor.fetchall())
 
-#GOOD STUFF
-for index, row in tweets_table.iterrows():
-    print(row)
-    print('\n')
-    cursor.execute("INSERT INTO tweet (text, links, datetime) VALUES (%s, %s, %s)", (row["TWEET: Text"], row["TWEET: Links"], row["TWEET: Date"],))
+#Populating into Tweet table
+# for index, row in tweets_table.iterrows():
+#     print(row)
+#     print('\n')
+#     cursor.execute("INSERT INTO tweet (text, links, datetime) VALUES (%s, %s, %s)", (row["TWEET: Text"], row["TWEET: Links"], row["TWEET: Date"],))
+
+# #Populating into UserTwitter table
+# for index, row in user_table.iterrows():
+#     # print(row)
+#     # print('\n')
+#     cursor.execute("INSERT INTO usertwitter (description, username, followercount, created) VALUES (%s, %s, %s, %s)", (row["USER: Description"], row["USER: Username"], row["USER: Follower Count"], row["USER: Created"]))
+
+# #Populating into UserTwitter table
+# for index, row in user_table.iterrows():
+#     cursor.execute("INSERT INTO usertwitter (description, username, followercount, created) VALUES (%s, %s, %s, %s)", (row["USER: Description"], row["USER: Username"], row["USER: Follower Count"], row["USER: Created"]))
+
+#Populating into tweetMetrics table
+for index, row in metrics_table.iterrows():
+    print(index)
+    cursor.execute("INSERT INTO tweetmetrics (replycount, retweetcount, favoritecount, tweetid) VALUES (%s, %s, %s, %s)", (row["METRICS: Reply Count"], row["METRICS: Retweet Count"], row["METRICS: Like Count"], int(index)))
 
 #Applies any transactions made to the actual database
 connection.commit()
