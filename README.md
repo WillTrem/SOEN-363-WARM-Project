@@ -51,5 +51,23 @@ connection.commit()
 For more information on how to use the database in a python script, please take a look at the [Official Psycopg Documentation](https://www.psycopg.org/docs/).
 
 
+# Obtaining Tweets
+## Setup
 
+Install Python version 3.8 or later.
+
+Install Pandas using:
+```
+pip install pandas
+```
+
+Install the social network scraper using:
+```
+pip install snscrape
+```
+
+## Execution
+
+Download and execute tweets.py from this repository.
+The tweets will be found in the same directory that you saved tweets.py to as a CSV file called tweets.csv
 
