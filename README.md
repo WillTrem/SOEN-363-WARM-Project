@@ -1,11 +1,10 @@
 # SOEN-363-WARM-Project
 SOEN 363 Project Repository of team WARM
-
-# Database Information
 ## General Information
 We are using a PostgreSQL database hosted by bit.io.
-## How to Use the Database in a Python Script
-### Setup
+
+# How to Use the Database in a Python Script
+## Setup
 First, you will have to install the `psycopg2` package, which takes care of connecting and communicating with the database. You can install it by running the following command in a terminal that points inside the repository:
 
 ```bash
@@ -20,7 +19,7 @@ from dbSetup import cursor
 
 This will import the `connection` `cursor` variable from the database setup, which can be used to manipulate the database.
 
-### Executing a query on the Database
+## Executing a query on the Database
 Queries can be executed with the following function:
 
 ```bash
@@ -71,3 +70,25 @@ pip install snscrape
 Download and execute tweets.py from this repository.
 The tweets will be found in the same directory that you saved tweets.py to as a CSV file called tweets.csv
 
+# Populating the Database with Tweet data
+## Setup
+
+Ensure you have obtained your tweet data as described in the Obtaining Tweets section.
+
+## Execution
+
+Open the dbPopulate.py script in an IDE that supports python script execution
+
+Then, uncomment the section of the database you want to populate data with. 
+
+e.g.,  to populate the Tweet table, uncomment its associated section like this:
+```bash
+# Populating into Tweet table
+ for index, row in tweets_table.iterrows():
+     print(row)
+     print('\n')
+     cursor.execute("INSERT INTO tweet (text, links, datetime) VALUES (%s, %s, %s)", (row["TWEET: Text"], row["TWEET: Links"], row["TWEET: Date"],))
+```
+Then, once that's done, you can comment back in the section to prevent re-populating the table.
+
+Repeat for every table you want to populate with data.
