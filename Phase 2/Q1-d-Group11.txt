@@ -1,0 +1,4 @@
+-- d. Print the sum and the average of values for a certain column (userid), grouped by another column (followercount)
+SELECT SUM(userid), AVG(userid)
+FROM usertwitter
+GROUP BY followercount;
