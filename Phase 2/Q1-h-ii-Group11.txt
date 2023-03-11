@@ -1,0 +1,6 @@
+-- h. Fetch the values from any two meaningful columns of a table where the tables of a certain column
+-- ii. Do not end with a certain letter
+SELECT linkId, text
+FROM links
+WHERE text NOT LIKE '%m';
+
