@@ -2,8 +2,8 @@
 -- hashtag as table 1
 -- tweets as table2
 -- usertwitter as table3
-SELECT hashtag.text, hashtag.tweetid
+SELECT usertwitter.userid, hashtag.text
 FROM hashtag
 JOIN tweets ON tweets.tweetid = hashtag.tweetid -- match table1 & table 2
 JOIN usertwitter ON usertwitter.userid = tweets.userid -- match table2 & table 3
-WHERE text ~ '(\w).*\1.*\1.*\1';
+WHERE hashtag.text ~ '(\w).*\1.*\1.*\1';
