@@ -1,0 +1,20 @@
+--Query R
+Create materialized view mv1
+As
+SELECT usertwitter.userid, hashtag.text
+FROM hashtag
+JOIN tweets ON tweets.tweetid = hashtag.tweetid -- match table1 & table 2
+JOIN usertwitter ON usertwitter.userid = tweets.userid -- match table2 & table 3
+WHERE hashtag.text ~ '(\w).*\1.*\1.*\1';
+
+Select * from mv1
+
+--Query N
+Create materialized view mv2
+As
+SELECT UT.username, T.text
+FROM tweet T
+JOIN tweets TTs ON TTs.tweetId = T.tweetId
+JOIN usertwitter UT ON UT.userId = TTs.userId
+
+Select * from mv2
