@@ -1,7 +1,10 @@
--- r. Retrieve the values from two columns of a table1, table2 and table3, where the values of a certain column in table1 match the values of a certain column in table2 and the values of a certain column in table2 match the values of a certain column in table3, and the values of a certain column in table1 have frequency of any alphabet is greater than 3.
+-- r. Retrieve the values from two columns of a table1, table2 and table3, where the values of a certain column in table1 match
+-- the values of a certain column in table2 and the values of a certain column in table2 match the values of a certain column
+-- in table3, and the values of a certain column in table1 have frequency of any alphabet is greater than 3.
 -- hashtag as table 1
 -- tweets as table2
 -- usertwitter as table3
+-- Execution Time: 47.028 ms
 SELECT usertwitter.userid, hashtag.text
 FROM hashtag
 JOIN tweets ON tweets.tweetid = hashtag.tweetid -- match table1 & table 2

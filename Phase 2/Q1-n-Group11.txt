@@ -1,7 +1,8 @@
 -- n. Retrieve values from two columns where the values of a specific column in the first table match the values
 -- of a specific column in the second table, and the values of a specific column in the second table match the values
 -- of a specific column in the third table
+-- Execution Time: 2.975 ms
 SELECT UT.username, T.text
 FROM tweet T
 JOIN tweets TTs ON TTs.tweetId = T.tweetId
-JOIN usertwitter UT ON UT.userId = TTs.userId
+JOIN usertwitter UT ON UT.userId = TTs.userId;
