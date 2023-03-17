@@ -4,7 +4,7 @@
 -- hashtag as table 1
 -- tweets as table2
 -- usertwitter as table3
--- Execution Time: 47.028 ms
+-- Execution Time: 86.734 ms
 SELECT usertwitter.userid, hashtag.text
 FROM hashtag
 JOIN tweets ON tweets.tweetid = hashtag.tweetid -- match table1 & table 2
