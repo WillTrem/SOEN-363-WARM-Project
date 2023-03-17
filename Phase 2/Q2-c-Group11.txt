@@ -1,3 +1,4 @@
+--MATERIALIZED VIEWS
 --Query R
 Create materialized view mv1
 As

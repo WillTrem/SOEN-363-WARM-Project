@@ -1,3 +1,4 @@
+--INDEXES
 CREATE INDEX idx1
 ON hashtag (tweetid, hashtagid);
 
