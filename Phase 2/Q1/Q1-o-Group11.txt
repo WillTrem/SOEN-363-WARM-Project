@@ -1,0 +1,9 @@
+-- o. Retrieve the values from two columns of table1, table2, and table3 where the values of a specific column in table 1 match the 
+-- values of a specific column in table 2, and the values of a specific column in table 2 match the values of a specific column in table 3, 
+-- and also show only the rows where the values of a specific column in table 1 starts with a specific letter
+
+SELECT UT.username, T.text
+FROM userTwitter UT
+JOIN tweets TTs ON UT.userId = TTs.userId
+JOIN tweet T ON TTs.tweetId = T.tweetId
+WHERE UT.username LIKE 't%'

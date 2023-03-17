@@ -1,0 +1,10 @@
+-- m. Retrieve the maximum values of a specific column (favoritecount), grouped by another column (replycount), only if the maximum value is higher than a specific threshold (MAX(favoritecount) > 150), for the rows where the data of certain columns match in two different tables (between tweetmetrics & tweet).
+SELECT tweetmetrics.tweetid, v1.maxFav
+FROM tweetmetrics, tweet,
+(SELECT MAX(favoritecount) as maxFav
+FROM tweetmetrics
+GROUP BY replycount
+HAVING MAX(favoritecount) > 150
+ORDER BY maxFav DESC) AS v1
+WHERE favoritecount = v1.maxFav
+AND tweet.tweetID = tweetmetrics.tweetID;

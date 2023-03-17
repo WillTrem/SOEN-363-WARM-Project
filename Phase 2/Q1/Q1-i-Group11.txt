@@ -1,0 +1,8 @@
+-- i. Retrieve all the records from a table where the value in a certain column appears most frequently.
+SELECT *
+FROM hashtag
+WHERE text = (SELECT text 
+              FROM hashtag
+              GROUP BY text
+              ORDER BY COUNT(text) DESC
+              FETCH FIRST 1 ROWS WITH TIES)

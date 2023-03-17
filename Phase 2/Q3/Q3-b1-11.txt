@@ -1,0 +1,6 @@
+SELECT AVG(usertwitter.followercount) as avgtwitterfollowercount, AVG(instagramaccount.followercount) as avginstagramfollowercount
+FROM usertwitter, hasinstagramaccount, instagramaccount
+WHERE hasinstagramaccount.userId = userTwitter.userid
+AND hasinstagramaccount.instagramuserid = instagramaccount.instagramuserid;
+
+Execution time: 0.569

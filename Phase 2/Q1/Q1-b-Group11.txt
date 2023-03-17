@@ -1,0 +1,4 @@
+-- b. Print all the values of the column with a specific condition (condition: find 'spotify' in column text )
+SELECT text
+FROM hashtag
+WHERE text = 'spotify';

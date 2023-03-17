@@ -1,0 +1,7 @@
+-- q. Retrieve the values from two columns of a table1 and table2, where the values for a certain column in table1 match the values of a certain column in table2 including all the rows from
+-- i. The first table, and the matching rows from the second table, and NULL for non-matching rows in the second table
+
+SELECT T.tweetId, T.text, T.datetime, L.linkid, L.url
+FROM tweet T
+LEFT JOIN links L ON T.tweetId = L.tweetId
+ORDER BY T.tweetId
