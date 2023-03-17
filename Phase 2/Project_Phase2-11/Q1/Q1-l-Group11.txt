@@ -1,0 +1,10 @@
+-- l. Retrieve a list of values in a certain column along with the number of times they appear
+-- in that column, only if the appear more than once, and group them by the values of the column
+-- and the value of another column falls within a certain range of dates
+-- Execution Time: 0.389 ms
+SELECT followerCount, COUNT(*) AS duplicateFollowerCount
+FROM userTwitter 
+WHERE created BETWEEN '2018-01-01' AND '2020-01-01' 
+GROUP BY followerCount 
+HAVING COUNT(*) > 1;
+

@@ -1,0 +1,13 @@
+--INDEXES
+CREATE INDEX idx1
+ON hashtag (tweetid, hashtagid);
+
+CREATE INDEX idx5
+ON tweets (tweetid, userid);
+
+CREATE INDEX idx6
+ON usertwitter (userid);
+
+
+--to drop indexes:
+-- DROP INDEX idx1;

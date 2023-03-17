@@ -1,0 +1,6 @@
+-- c. Print all the distinct names of an entity from any of the tables, ordered alphabetically in ascending order
+-- Order by username
+-- Execution Time: 1.257 ms
+SELECT DISTINCT(username)
+FROM userTwitter
+ORDER BY username ASC;

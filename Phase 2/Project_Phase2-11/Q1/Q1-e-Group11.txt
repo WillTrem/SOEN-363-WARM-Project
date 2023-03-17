@@ -1,0 +1,7 @@
+-- e. Get thte total value of a specific column, grouped by another column, 
+-- for the rows from table1, where the values of a certain columns of table 1 and table 2 match
+-- Execution Time: 4.546 ms
+SELECT tweets.userId, SUM(tweets.tweetId) as total
+FROM tweet, tweets
+WHERE tweet.tweetid = tweets.tweetid
+GROUP BY tweets.userid;

@@ -1,0 +1,7 @@
+-- Execution Time: 0.881 ms
+-- new Execution Time: 0.558 ms
+
+SELECT UserTwitter.username
+FROM UserTwitter 
+JOIN InstagramAccount ON UserTwitter.username = InstagramAccount.username
+GROUP BY UserTwitter.username;

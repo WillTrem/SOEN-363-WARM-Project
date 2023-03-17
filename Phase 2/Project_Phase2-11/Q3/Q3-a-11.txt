@@ -1,0 +1,15 @@
+create table IF NOT EXISTS  instagramaccount (
+   instagramuserid bigint,
+   username varchar,
+   bio varchar,
+   numberofposts int,
+   followercount int,
+   followingcount int,
+   primary key (instagramuserid)
+);
+
+create table IF NOT EXISTS hasinstagramaccount (
+   userid int references usertwitter,
+   instagramuserid bigint references instagramaccount,
+   primary key (userid, instagramuserid)
+);
