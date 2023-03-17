@@ -1,5 +1,0 @@
--- b. Print all the values of the column with a specific condition (condition: find 'spotify' in column text )
--- Execution Time: 0.227 ms
-SELECT text
-FROM hashtag
-WHERE text = 'spotify';

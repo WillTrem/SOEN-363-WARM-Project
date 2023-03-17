@@ -1,4 +1,6 @@
--- f.ii. Fetch rows of a table where the values of a certain column (tweetid), fall outside a certain range of values (not between 50 and 100).
+-- f.ii. Fetch rows of a table where the values of a certain column (tweetid), 
+-- fall outside a certain range of values (not between 50 and 100).
+-- Execution Time: 0.410 ms
 SELECT tweetid
 FROM tweets
 WHERE NOT(tweetid > 50 AND tweetid < 100);

@@ -1,6 +1,0 @@
--- h. Fetch the values from any two meaningful columns of a table where the tables of a certain column
--- iii. Contain certain letters
--- Execution Time: 0.196 ms
-SELECT linkId, text
-FROM links
-WHERE text LIKE '%instagram%';

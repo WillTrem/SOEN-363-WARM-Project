@@ -1,7 +1,8 @@
--- q. Retrieve the values from two columns of a table1 and table2, where the values for a certain column in table1 match the values of a certain column in table2 including all the rows from
+-- q. Retrieve the values from two columns of a table1 and table2, where the values for a certain column in table1 match
+-- the values of a certain column in table2 including all the rows from
 -- iii. Both tables, and NULL for non-matching rows
-
+-- Execution Time: 2.653 ms
 SELECT T.tweetId, T.text, T.datetime, L.linkid, L.url
 FROM tweet T
 FULL OUTER JOIN links L ON T.tweetId = L.tweetId
-ORDER BY T.tweetId
+ORDER BY T.tweetId;

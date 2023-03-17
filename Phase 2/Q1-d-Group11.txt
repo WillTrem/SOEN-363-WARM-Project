@@ -1,5 +1,0 @@
--- d. Print the sum and the average of values for a certain column (userid), grouped by another column (followercount)
--- Execution Time: 1.398 ms
-SELECT SUM(userid), AVG(userid)
-FROM usertwitter
-GROUP BY followercount;

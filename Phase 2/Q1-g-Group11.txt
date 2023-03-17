@@ -1,6 +1,0 @@
--- g. Fetch the values from two columns of a table, sorted by the values of the first column in
--- descending order and the values of the second column in ascending order
--- Execution Time: 0.894 ms
-SELECT followercount, username
-FROM userTwitter
-ORDER BY followercount DESC, username ASC;

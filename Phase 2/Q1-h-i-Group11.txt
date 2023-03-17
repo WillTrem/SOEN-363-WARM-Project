@@ -1,6 +1,0 @@
--- h. Fetch the values from any two meaningful columns of a table where the tables of a certain column
--- i. Start with a certain letter
--- Execution Time: 7.028 ms
-SELECT linkId, text
-FROM links
-WHERE text LIKE 'i%';

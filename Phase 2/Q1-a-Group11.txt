@@ -1,9 +1,0 @@
--- a. Print the row holding the maximum of any of the columns
--- Find max favoritecount
--- Execution Time: 0.519 ms
-SELECT * 
-FROM TweetMetrics
-WHERE favoritecount = (
-    SELECT MAX(favoritecount) AS MaxFavoriteCount
-    FROM TweetMetrics    
-);
