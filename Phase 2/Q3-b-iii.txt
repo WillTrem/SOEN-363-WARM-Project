@@ -1,3 +1,6 @@
+-- Execution Time: 1.965 ms
+-- new Execution Time: 1.870 ms
+
 SELECT UserTwitter.username, COUNT(DISTINCT tweets.tweetid) AS tweet_count, 
        AVG(UserTwitter.followercount) AS avg_twitter_follower_count,
        MAX(InstagramAccount.followercount) AS max_insta_follower_count

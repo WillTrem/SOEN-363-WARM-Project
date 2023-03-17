@@ -1,4 +1,6 @@
--- f.i. Fetch rows of a table where the values of a certain column (tweetid), fall between a certain range of values (between 50 and 100).
+-- f.i. Fetch rows of a table where the values of a certain column (tweetid), 
+-- fall between a certain range of values (between 50 and 100).
+-- Execution Time: 0.054 ms
 SELECT tweetid
 FROM tweets
 WHERE tweetid > 50 AND tweetid < 100;

@@ -1,3 +1,6 @@
+-- Execution Time: 1.745 ms
+-- new Execution Time: 1.634 ms
+
 SELECT ia.username, h.text, COUNT(*) AS hashtag_count
 FROM InstagramAccount ia 
 JOIN UserTwitter ut ON ut.username = ia.username 
