@@ -52,4 +52,4 @@ db.userTwitter.aggregate([
            max_insta_follower_count: 1
          }
    }
-])
+]).toArray();

@@ -3,22 +3,25 @@
 use('project-phase-3-db');
 
 db.userTwitter.aggregate([
-    { $lookup: 
+  { 
+    $lookup: 
     {
-    from: "instagramaccount",
-    localField: "username",
-    foreignField: "username",
-    as: "instagramaccount"
+        from: "instagramaccount",
+        localField: "username",
+        foreignField: "username",
+        as: "instagramaccount"
     }
-    },
+  },
+  {
+    $match: 
     {
-     $match: {
-       "instagramaccount": {$ne:[]}
-     }
-    },
+      "instagramaccount": {$ne:[]}
+    }
+  },
+  {
+    $group: 
     {
-        $group: {
-          _id: "$username",
-        }
-    },
-    ]).toArray();
+      _id: "$username",
+    }
+  },
+]).toArray();
