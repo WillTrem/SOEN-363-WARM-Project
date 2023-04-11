@@ -1,4 +1,4 @@
-// Another query can be the following as it provides information about the number of tweets and the average and maximum follower count for each user who has a Twitter and Instagram account.
+// Lists number of tweets & the average and maximum follower count for users who have Twitter and Instagram
 
 use('project-phase-3-db');
 
@@ -30,10 +30,10 @@ db.userTwitter.aggregate([
    {
       $group:
          {
-           _id: "$username",
+           _id: null ,
            tweet_count: { $sum: 1 },
            avg_twitter_follower_count: { $avg: "$followercount" },
-           max_insta_follower_count: { $max: "$instagramaccount.followercount" }
+           max_insta_follower_count: { $max: "$instagramAccount.followercount" }
          }
    },
    {
@@ -46,7 +46,6 @@ db.userTwitter.aggregate([
       $project:
          {
            _id: 0,
-           username: "$_id",
            tweet_count: 1,
            avg_twitter_follower_count: 1,
            max_insta_follower_count: 1

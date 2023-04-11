@@ -1,4 +1,4 @@
-// Show all tweets that were posted after a specific date (after 2021-01-01) and have been retweeted more than 100 times.
+// Lists all tweets that were posted after a given date (2021-01-01) and retweeted more than 100 times
 
 use("project-phase-3-db");
 

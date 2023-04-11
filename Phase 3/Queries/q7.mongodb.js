@@ -1,4 +1,4 @@
-// Find all tweets that contain a specific URL.
+// Finds tweets that contain a particular URL (https://www.instagram.com/kinlwu/)
 
 use("project-phase-3-db");
 
@@ -24,7 +24,6 @@ db.links.aggregate([
              _id: 0,
              tweetid: "$tweetid",
              text: "$text",
-             url: "$count"
            }
      }
 ]).toArray();

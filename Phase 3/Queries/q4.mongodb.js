@@ -1,4 +1,4 @@
-// This query the average number of followers for Twitter users between 2020 and 2023.
+// Lists Twitter users’ average number of followers from 2020 to 2023
 
 use('project-phase-3-db');
 

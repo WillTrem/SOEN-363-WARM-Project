@@ -1,4 +1,4 @@
-// This query returns a list of all the UserTwitter usernames that have matching usernames in the InstagramAccount table, with duplicates that are removed. These two tables combined into one single query help to identify patterns and relationships that might not be apparent from looking at each database separately by its own.
+// Lists usernames who have same usernames in Twitter and Instagram (duplicates removed)
 
 use('project-phase-3-db');
 

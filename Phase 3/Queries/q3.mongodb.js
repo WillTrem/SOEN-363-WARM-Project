@@ -1,4 +1,4 @@
-// This query returns a list of Instagram usernames and the hashtags used in their posts from Twitter
+// Lists Instagram usernames and the hashtags used in their tweets from Twitter
 
 use('project-phase-3-db');
 

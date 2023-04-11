@@ -1,4 +1,5 @@
-// This query displays the number of Twitter user created each month in the past year.
+// Lists the number of Twitter user created each month in the past year between 2022 and 2023.
+
 use('project-phase-3-db');
 
 db.userTwitter.aggregate([ 

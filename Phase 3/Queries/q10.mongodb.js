@@ -1,4 +1,4 @@
-// Retrieve all tweets that contain a specific string (Instagram)
+// Lists all tweets containing the word “Instagram”
 
 use("project-phase-3-db");
 

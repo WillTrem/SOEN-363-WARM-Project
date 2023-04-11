@@ -1,4 +1,4 @@
-// Find all users who have an Instagram and Twitter account and have more than 2500 followers on twitter. 
+// Lists users who have Instagram and Twitter with more than 2500 followers via Twitter
 
 use("project-phase-3-db");
 
