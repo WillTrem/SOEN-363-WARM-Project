@@ -1,4 +1,4 @@
-// Lists Instagram usernames and the hashtags used in their tweets from Twitter
+// List the hashtags most frequently used by users who have both a Twitter and an Instagram account, in descending order
 
 use('project-phase-3-db');
 

@@ -1,31 +1,44 @@
-// Lists users who have Instagram and Twitter with more than 2500 followers via Twitter
+// Lists the usernames who have the most followers in twitter or instagram
 
 use("project-phase-3-db");
 
 db.userTwitter.aggregate([
     {
-        $lookup: 
-        {
-            from: "instagramaccount",
-            localField: "username",
-            foreignField: "username",
-            as: "instagramaccount",
-        },
+      $lookup: {
+        from: "instagramAccount",
+        localField: "username",
+        foreignField: "username",
+        as: "instagramAccounts"
+      }
     },
     {
-        $match: 
-        {
-        
-            followercount: { $gt: 2500 },
-            instagramaccount: { $ne: [] },
-        },
+      $addFields: {
+        followerscountTwitter: "$followercount",
+        followerscountInstagram: { $sum: "$instagramAccounts.followercount" },
+        platform: {
+          $cond: {
+            if: { $gt: ["$followercount", { $sum: "$instagramAccounts.followercount" }] },
+            then: "Twitter",
+            else: "Instagram"
+          }
+        }
+      }
     },
     {
-        $project:
-           {
-             _id: 0,
-             username: "$username",
-             number_Followers: "$followercount"
-           }
-     }
-]).toArray();
+      $project: {
+        _id: 0,
+        username: 1,
+        followerscount: {
+          $max: ["$followerscountTwitter", "$followerscountInstagram"]
+        },
+        platform: 1
+      }
+    },
+    {
+      $sort: { followerscount: -1 }
+    },
+    {
+      $limit: 5
+    }
+  ]);
+  

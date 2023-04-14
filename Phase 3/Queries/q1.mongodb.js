@@ -1,7 +1,6 @@
-// Lists usernames who have same usernames in Twitter and Instagram (duplicates removed)
+// Lists usernames who have same usernames in Twitter and Instagram (duplicates removed) with number of usernames
 
 use('project-phase-3-db');
-
 db.userTwitter.aggregate([
   { 
     $lookup: 
@@ -24,4 +23,20 @@ db.userTwitter.aggregate([
       _id: "$username",
     }
   },
+  {
+    $group:
+    {
+      _id: null,
+      usernames: { $addToSet: "$_id" }
+    }
+  },
+  {
+    $project:
+    {
+      _id: 0,
+      usernames: 1,
+      count: { $size: "$usernames" }
+    }
+  }
 ]).toArray();
+

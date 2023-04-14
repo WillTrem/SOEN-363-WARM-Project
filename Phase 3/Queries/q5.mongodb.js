@@ -1,4 +1,4 @@
-// Lists the number of Twitter user created each month in the past year between 2022 and 2023.
+// Displays the month that has the greatest number of twitter user created between 2022-23
 
 use('project-phase-3-db');
 
@@ -18,9 +18,9 @@ db.userTwitter.aggregate([
       }
     },
     {
-        $sort:
-           {
-             _id: 1
-           }
+      $sort: { count: -1 }
      },
+     {
+      $limit: 1
+    }
 ]);

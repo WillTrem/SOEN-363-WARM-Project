@@ -1,29 +1,35 @@
-// Finds tweets that contain a particular URL (https://www.instagram.com/kinlwu/)
+// Display the user who has the highest number of instagram_posts or tweets  (for users having a Twitter and Instagram account) 
 
 use("project-phase-3-db");
 
-db.links.aggregate([
+db.instagramaccount.aggregate([
     {
-        $lookup: 
-        {
-            from: "tweet",
-            localField: "tweetid",
-            foreignField: "_id",
-            as: "tweet",
-        },
+      $lookup: {
+        from: "userTwitter",
+        localField: "username",
+        foreignField: "username",
+        as: "twitter"
+      }
     },
     {
-        $match: 
-        {
-            text: "https://www.instagram.com/kinlwu/",
-        },
+      $addFields: {
+        tweet_count: { $size: "$twitter" },
+      },
     },
     {
-        $project:
-           {
-             _id: 0,
-             tweetid: "$tweetid",
-             text: "$text",
-           }
-     }
-]).toArray();
+      $project: {
+        _id: 0,
+        username: 1,
+        instagram_count: "$numberofposts",
+        tweet_count: 1,
+        highest_count: { $max: ["$numberofposts", "$tweet_count"] }
+      }
+    },
+    {
+      $sort: { highest_count: -1 }
+    },
+    {
+      $limit: 1
+    }
+  ]).toArray();
+  
