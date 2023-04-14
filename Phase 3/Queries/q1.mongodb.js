@@ -8,13 +8,14 @@ db.userTwitter.aggregate([
         from: "instagramaccount",
         localField: "username",
         foreignField: "username",
-        as: "instagramaccount"
+
+        as: "matchingUsername"
     }
   },
   {
     $match: 
     {
-      "instagramaccount": {$ne:[]}
+      "matchingUsername": {$ne:[]}
     }
   },
   {
