@@ -1,0 +1,5 @@
+-- selects the usernames of users having used the "facebook" hashtag in their tweet
+
+SELECT h.text, username
+FROM hashtag as h, usertwitter as ut, tweets as t
+WHERE h.text = 'facebook' and h.tweetid = t.tweetid and t.userid = ut.userid;

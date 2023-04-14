@@ -1,0 +1,9 @@
+-- Selects the number of tweets and the average and maximum follower count for each user who has a Twitter and Instagram account
+
+SELECT COUNT(DISTINCT tweets.tweetid) AS tweet_count, 
+       AVG(UserTwitter.followercount) AS avg_twitter_follower_count,
+       MAX(InstagramAccount.followercount) AS max_insta_follower_count
+FROM UserTwitter 
+JOIN tweets ON UserTwitter.userID = tweets.userID
+JOIN InstagramAccount ON UserTwitter.username = InstagramAccount.username
+ORDER BY tweet_count DESC;

@@ -1,0 +1,6 @@
+-- Lists usernames who have same usernames in Twitter and Instagram (duplicates removed)
+
+SELECT UserTwitter.username
+FROM UserTwitter 
+JOIN InstagramAccount ON UserTwitter.username = InstagramAccount.username
+GROUP BY UserTwitter.username; --group by removes duplicates

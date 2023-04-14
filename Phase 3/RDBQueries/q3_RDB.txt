@@ -1,0 +1,9 @@
+-- List the hashtags most frequently used by users having a Twitter and an Instagram account, in descending order, and with their username
+
+SELECT ia.username, h.text, COUNT(*) AS hashtag_count
+FROM InstagramAccount ia 
+JOIN UserTwitter ut ON ut.username = ia.username 
+JOIN tweets t ON t.userID = ut.userid 
+JOIN Hashtag h ON t.tweetID = h.tweetID
+GROUP BY ia.username, h.text
+ORDER BY hashtag_count DESC;
